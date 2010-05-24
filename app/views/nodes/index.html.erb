@@ -1,0 +1,19 @@
+<% title "Nodes" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+  <% for node in @nodes %>
+    <tr>
+      <td><%= node.title %></td>
+      <td><%= node.content %></td>
+      <td><%= link_to "Show", [@maze, node] %></td>
+      <td><%= link_to "Edit", edit_maze_node_path(@maze, node) %></td>
+      <td><%= link_to "Destroy", [@maze, node], :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Node", new_maze_node_path(@maze) %></p>
