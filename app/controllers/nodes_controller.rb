@@ -2,13 +2,14 @@ class NodesController < ApplicationController
   
   before_filter :login_required
   before_filter :get_maze
-  
+
   def index
     @nodes = @maze.nodes.all
   end
   
   def show
     @node = @maze.nodes.find(params[:id])
+    @links = @node.links.all
   end
   
   def new
