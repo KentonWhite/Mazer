@@ -1,4 +1,6 @@
 Mazer::Application.routes.draw do |map|
+  resources :mazes
+
   match 'signup' => 'users#new', :as => :signup
 
   match 'logout' => 'sessions#destroy', :as => :logout

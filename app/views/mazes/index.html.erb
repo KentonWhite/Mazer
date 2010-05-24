@@ -1,0 +1,19 @@
+<% title "Mazes" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>User</th>
+  </tr>
+  <% for maze in @mazes %>
+    <tr>
+      <td><%= maze.title %></td>
+      <td><%= maze.user_id %></td>
+      <td><%= link_to "Show", maze %></td>
+      <td><%= link_to "Edit", edit_maze_path(maze) %></td>
+      <td><%= link_to "Destroy", maze, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Maze", new_maze_path %></p>
