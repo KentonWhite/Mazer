@@ -8,6 +8,7 @@ class MazesController < ApplicationController
   
   def show
     @maze = current_user.mazes.find(params[:id])
+    @nodes = @maze.nodes.all
   end
   
   def new
