@@ -1,7 +1,9 @@
 Mazer::Application.routes.draw do |map|
 
   resources :mazes do
-    resources :nodes 
+    resources :nodes do
+      resources :links
+    end 
   end
 
   match 'signup' => 'users#new', :as => :signup

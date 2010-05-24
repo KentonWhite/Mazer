@@ -9,7 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100524203626) do
+ActiveRecord::Schema.define(:version => 20100524210413) do
+
+  create_table "links", :force => true do |t|
+    t.string   "text"
+    t.integer  "node_id"
+    t.integer  "to_node_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mazes", :force => true do |t|
     t.string   "title"

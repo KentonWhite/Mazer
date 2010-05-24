@@ -1,0 +1,12 @@
+<%= form_for [@maze,@node,@link] do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_field :text %>
+  </p>
+  <p>
+    <%= f.label :to_node_id %><br />
+    <%= f.text_field :to_node_id %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

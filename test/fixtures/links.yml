@@ -1,0 +1,7 @@
+one:
+  text: MyString
+  node_id: 1
+
+two:
+  text: MyString
+  node_id: 1
