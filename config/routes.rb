@@ -5,7 +5,9 @@ Mazer::Application.routes.draw do |map|
 
   match 'logout' => 'sessions#destroy', :as => :logout
 
-  match 'login' => 'sessions#new', :as => :login
+  match 'login' => 'sessions#new', :as => :login 
+  
+  root :to => 'mazes#index'
 
   resources :sessions
 
