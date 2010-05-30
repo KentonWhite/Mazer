@@ -1,9 +1,11 @@
 one:
+  id: 1
   title: MyString
-  text: MyText
+  content: MyText
   maze_id: 1
 
 two:
+  id: 2
   title: MyString
-  text: MyText
+  content: MyText
   maze_id: 1

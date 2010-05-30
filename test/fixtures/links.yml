@@ -1,7 +1,11 @@
 one:
+  id: 1
   text: MyString
   node_id: 1
+  to_node_id: 2
 
-two:
+two: 
+  id: 2
   text: MyString
-  node_id: 1
+  node_id: 2
+  to_node_id: 1

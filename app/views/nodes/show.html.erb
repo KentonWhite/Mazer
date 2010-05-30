@@ -11,9 +11,3 @@
 <p>
 <%= render :partial => 'show_links' %>
 </p>
-
-<p>
-  <%= link_to "Edit", edit_maze_node_path(@maze, @node) %> |
-  <%= link_to "Destroy", [@maze, @node], :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", maze_nodes_path(@maze) %>
-</p>

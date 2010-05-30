@@ -27,7 +27,7 @@ class NodesController < ApplicationController
   end
   
   def edit
-    @node = @maze.nodes.new.find(params[:id])
+    @node = @maze.nodes.find(params[:id])
   end
   
   def update

@@ -4,16 +4,6 @@
   <strong>Title:</strong>
   <%= @maze.title %>
 </p>
-<p>
-  <strong>Nodes:</strong>
-  <% @nodes.each do |node| %>
-  	<p>
-			<%= node.title %>
-			<%= link_to "Show", maze_node_path(@maze, node.id)%>
-		</p>
-  <% end %>
-  
-</p>
 
 <p>
   <%= link_to "Edit", edit_maze_path(@maze) %> |

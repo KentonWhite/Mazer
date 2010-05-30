@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
   def get_node
     @node = @maze.nodes.find params[:node_id]
   end
+  
 end

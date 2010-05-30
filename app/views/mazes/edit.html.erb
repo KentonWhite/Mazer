@@ -3,6 +3,19 @@
 <%= render 'form' %>
 
 <p>
+  <strong>Nodes:</strong>
+  <% @nodes.each do |node| %>
+  	<p>
+			<%= node.title %>
+			<%= link_to "Show", maze_node_path(@maze, node)%> |
+		  <%= link_to "Edit", edit_maze_node_path(@maze, node) %> |
+		  <%= link_to "Destroy", [@maze, node], :confirm => 'Are you sure?', :method => :delete %>
+		</p>
+  <% end unless @nodes.nil? %>
+  
+</p>
+
+<p>
   <%= link_to "Show", @maze %> |
   <%= link_to "View All", mazes_path %>
 </p>

@@ -7,7 +7,7 @@
   <% for maze in @mazes %>
     <tr>
       <td><%= maze.title %></td>
-      <td><%= link_to "Show", maze %></td>
+      <td><%= link_to "Play", maze %></td>
       <td><%= link_to "Edit", edit_maze_path(maze) %></td>
       <td><%= link_to "Destroy", maze, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>

@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class MazesControllerTest < ActionController::TestCase
+  def setup
+    login_as users(:foo)
+  end
+  
+  
   def test_index
     get :index
     assert_template 'index'
