@@ -18,7 +18,7 @@ class MazesController < ApplicationController
     @maze = current_user.mazes.new(params[:maze])
     if @maze.save
       flash[:notice] = "Successfully created maze."
-      redirect_to @maze
+      redirect_to new_maze_node_path(@maze)
     else
       render :action => 'new'
     end

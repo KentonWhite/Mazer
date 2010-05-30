@@ -9,7 +9,7 @@ class NodesController < ApplicationController
   
   def show
     @node = @maze.nodes.find(params[:id])
-    @links = @node.links.all
+    get_links
   end
   
   def new
@@ -20,7 +20,7 @@ class NodesController < ApplicationController
     @node = @maze.nodes.new(params[:node])
     if @node.save
       flash[:notice] = "Successfully created node."
-      redirect_to [@maze, @node]
+      redirect_to edit_maze_path(@maze)
     else
       render :action => 'new'
     end
@@ -28,16 +28,17 @@ class NodesController < ApplicationController
   
   def edit
     @node = @maze.nodes.find(params[:id])
+    get_links
   end
   
   def update
-    @node = @maze.nodes.find(params[:id])
+    @node = @maze.nodes.find(params[:id])   
     if @node.update_attributes(params[:node])
       flash[:notice] = "Successfully updated node."
-      redirect_to [@maze, @node]
     else
-      render :action => 'edit'
+      flash[:error] = "Node wasn't updated"
     end
+    redirect_to edit_maze_path(@maze)
   end
   
   def destroy
@@ -46,5 +47,12 @@ class NodesController < ApplicationController
     flash[:notice] = "Successfully destroyed node."
     redirect_to maze_nodes_url @maze 
   end
+  
+  protected
+  
+  
+  def get_links
+    @links = @node.links.all
+  end  
   
 end

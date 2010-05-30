@@ -30,7 +30,7 @@ class MazesControllerTest < ActionController::TestCase
   def test_create_valid
     Maze.any_instance.stubs(:valid?).returns(true)
     post :create
-    assert_redirected_to maze_url(assigns(:maze))
+    assert_redirected_to new_maze_node_url(assigns(:maze))
   end
   
   def test_edit

@@ -6,7 +6,7 @@
   </p>
   <p>
     <%= f.label :to_node_id %><br />
-    <%= f.text_field :to_node_id %>
+    <%= f.select :to_node_id, @nodes %>
   </p>
   <p><%= f.submit %></p>
 <% end %>

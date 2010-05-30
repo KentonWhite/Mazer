@@ -6,29 +6,33 @@ class LinksController < ApplicationController
   
   def new
     @link = @node.links.new
+    @nodes = @maze.nodes.all.collect { |n| [n.title, n.id] }
   end
   
   def create
     @link = @node.links.new(params[:link])
     if @link.save
       flash[:notice] = "Successfully created link."
-      redirect_to root_url
-    else
-      render :action => 'new'
+      redirect_to edit_maze_node_path(@maze, @node)
+    else 
+      flash[:error] = "Link wasn't created"
+      redirect_to new_maze_node_link_path(@maze, @node)
     end
   end
   
   def edit
     @link = @node.links.find(params[:id])
+    @nodes = @maze.nodes.all.collect { |n| [n.title, n.id] }
   end
   
   def update
     @link = @node.links.find(params[:id])
     if @link.update_attributes(params[:link])
       flash[:notice] = "Successfully updated link."
-      redirect_to root_url
+    redirect_to edit_maze_node_path(@maze, @node)
     else
-      render :action => 'edit'
+      flash[:error] = "Link wasn't updated"
+      redirect_to edit_maze_node_link_path(@maze, @node)
     end
   end
   

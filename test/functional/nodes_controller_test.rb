@@ -30,7 +30,7 @@ class NodesControllerTest < ActionController::TestCase
   def test_create_valid
     Node.any_instance.stubs(:valid?).returns(true)
     post :create, :maze_id => mazes(:one)
-    assert_redirected_to maze_node_url(mazes(:one), assigns(:node))
+    assert_redirected_to edit_maze_url(mazes(:one))
   end
   
   def test_edit
@@ -41,13 +41,13 @@ class NodesControllerTest < ActionController::TestCase
   def test_update_invalid
     Node.any_instance.stubs(:valid?).returns(false)
     put :update, :maze_id => mazes(:one), :id => Node.first
-    assert_template 'edit'
+    assert_redirected_to edit_maze_url(mazes(:one))
   end
   
   def test_update_valid
     Node.any_instance.stubs(:valid?).returns(true)
     put :update, :maze_id => mazes(:one), :id => Node.first
-    assert_redirected_to maze_node_url(mazes(:one), assigns(:node))
+    assert_redirected_to edit_maze_url(mazes(:one))
   end
   
   def test_destroy

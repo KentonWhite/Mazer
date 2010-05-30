@@ -14,13 +14,13 @@ class LinksControllerTest < ActionController::TestCase
   def test_create_invalid
     Link.any_instance.stubs(:valid?).returns(false)
     post :create, :maze_id => mazes(:one), :node_id => nodes(:one)
-    assert_template 'new'
+    assert_redirected_to new_maze_node_link_url(mazes(:one), nodes(:one))
   end
   
   def test_create_valid
     Link.any_instance.stubs(:valid?).returns(true)
     post :create, :maze_id => mazes(:one), :node_id => nodes(:one)
-    assert_redirected_to root_url
+    assert_redirected_to edit_maze_node_url(mazes(:one), nodes(:one))
   end
   
   def test_edit
@@ -31,13 +31,13 @@ class LinksControllerTest < ActionController::TestCase
   def test_update_invalid
     Link.any_instance.stubs(:valid?).returns(false)
     put :update, :maze_id => mazes(:one), :node_id => nodes(:one), :id => Link.first
-    assert_template 'edit'
+    assert_redirected_to edit_maze_node_link_url(mazes(:one), nodes(:one))
   end
   
   def test_update_valid
     Link.any_instance.stubs(:valid?).returns(true)
     put :update, :maze_id => mazes(:one), :node_id => nodes(:one), :id => Link.first
-    assert_redirected_to root_url
+    assert_redirected_to edit_maze_node_url(mazes(:one), nodes(:one))
   end
   
   def test_destroy

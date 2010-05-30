@@ -1,13 +1,15 @@
 <% title "Edit Maze" %>
 
-<%= render 'form' %>
+<p>
+	<strong>Title:</strong>
+	<p><%= @maze.title %></p>
+</p>
 
 <p>
   <strong>Nodes:</strong>
   <% @nodes.each do |node| %>
   	<p>
 			<%= node.title %>
-			<%= link_to "Show", maze_node_path(@maze, node)%> |
 		  <%= link_to "Edit", edit_maze_node_path(@maze, node) %> |
 		  <%= link_to "Destroy", [@maze, node], :confirm => 'Are you sure?', :method => :delete %>
 		</p>
@@ -16,6 +18,6 @@
 </p>
 
 <p>
-  <%= link_to "Show", @maze %> |
+  <%= link_to "Create Node", new_maze_node_path(@maze) %> |
   <%= link_to "View All", mazes_path %>
 </p>

@@ -1,8 +1,18 @@
 <% title "Edit Node" %>
-
-<%= render 'form' %>
+<p>
+  <strong>Title:</strong>
+  <%= @node.title %>
+</p>
+<p>
+  <strong>Content:</strong>
+  <%= @node.content %>
+</p> 
 
 <p>
-  <%= link_to "Show", [@maze, @node] %> |
-  <%= link_to "View All", maze_nodes_path(@maze) %>
+<%= render :partial => 'show_links' %>
+</p>
+
+<p>
+	<%= link_to "Add Link", new_maze_node_link_path(@maze, @node) %> |
+  <%= link_to "Back", edit_maze_path(@maze) %>
 </p>
