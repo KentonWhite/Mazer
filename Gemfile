@@ -25,8 +25,12 @@ gem 'pg'
 # group :test do
 #   gem 'webrat'
 # end
-gem 'mocha'
 
-gem 'mongrel'
+group :development do
+	gem 'mongrel'
+	gem "nifty-generators"
+end 
 
-gem "nifty-generators" 
+group :test do
+	gem 'mocha'
+end
