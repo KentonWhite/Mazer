@@ -9,5 +9,7 @@
   <%= @node.content %>
 </p> 
 <p>
-<%= render :partial => 'show_links' %>
+<%= render :partial => 'show_links', :locals => {:edit  => nil} %>
 </p>
+
+<p><%= link_to 'Quit', mazes_path %></p>

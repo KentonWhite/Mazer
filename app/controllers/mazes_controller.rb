@@ -8,6 +8,8 @@ class MazesController < ApplicationController
   
   def show
     @maze = current_user.mazes.find(params[:id])
+    @node = @maze.nodes.first
+    redirect_to maze_node_url(@maze, @node)
   end
   
   def new
@@ -18,7 +20,7 @@ class MazesController < ApplicationController
     @maze = current_user.mazes.new(params[:maze])
     if @maze.save
       flash[:notice] = "Successfully created maze."
-      redirect_to new_maze_node_path(@maze)
+      redirect_to new_maze_node_url(@maze)
     else
       render :action => 'new'
     end
