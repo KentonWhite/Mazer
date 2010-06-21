@@ -29,4 +29,4 @@ gem 'mocha'
 
 gem 'mongrel'
 
-gem "nifty-generators"
+gem "nifty-generators" 

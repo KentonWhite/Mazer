@@ -1,4 +1,7 @@
   <strong>Links:</strong>
   <% @links.each do |link| %>
-  	<p><%= link_to link.text, maze_node_path(@maze, link.to_node_id) %></p> 
+  	<p>
+  	  <%= link_to link.text, maze_node_path(@maze, link.to_node_id) %>
+  	  <%= link_to 'Edit', edit_maze_node_link_path(@maze, @node, link) %>
+  	</p> 
   <% end %>

@@ -1,9 +1,6 @@
 <% title "Edit Maze" %>
 
-<p>
-	<strong>Title:</strong>
-	<p><%= @maze.title %></p>
-</p>
+<%= render 'form' %>
 
 <p>
   <strong>Nodes:</strong>
@@ -19,5 +16,5 @@
 
 <p>
   <%= link_to "Create Node", new_maze_node_path(@maze) %> |
-  <%= link_to "View All", mazes_path %>
+  <%= link_to "Back", mazes_path %>
 </p>
