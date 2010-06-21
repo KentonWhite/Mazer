@@ -27,7 +27,7 @@ gem 'pg'
 # end
 
 group :development do
-	gem 'mongrel'
+	# gem 'mongrel'
 	gem "nifty-generators"
 end 
 
