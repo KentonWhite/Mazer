@@ -13,7 +13,7 @@ class MazesControllerTest < ActionController::TestCase
   
   def test_show
     get :show, :id => Maze.first
-    assert_template 'show'
+    assert_redirected_to maze_node_url(Maze.first, Maze.first.nodes.first)
   end
   
   def test_new
